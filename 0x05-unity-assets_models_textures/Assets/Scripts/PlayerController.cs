@@ -6,43 +6,47 @@ public class PlayerController : MonoBehaviour
 {
     public float speed = 6.0F;
     public float jumpSpeed = 8.0F; 
-    // public float gravity = 20.0F;
-    // private Vector3 moveDirection = Vector3.zero;
     private bool canJump = true;
     private Rigidbody selfRigidbody;
+    public float sensitivity = 4.0f;
 
     // Start is called before the first frame update
     void Start()
     {
         // isOnGround = true;
         selfRigidbody = GetComponent<Rigidbody>();
+        if (selfRigidbody == null)
+        {
+            selfRigidbody = gameObject.AddComponent<Rigidbody>();
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
+        float horizontal = 0, vertical = 0;
+
         if (Input.GetKeyDown(KeyCode.Space) && canJump)
         {
+            selfRigidbody.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse);
             canJump = false;
-            selfRigidbody.AddForce(0, jumpSpeed, 0, ForceMode.Impulse);
         }
 
-		if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
-        {
-			transform.position += Vector3.right * speed * Time.deltaTime;
-		}
-		if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
-        {
-			transform.position += Vector3.left* speed * Time.deltaTime;
-		}
 		if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
-        {
-			transform.position += Vector3.forward * speed * Time.deltaTime;
-		}
+            vertical = 1;
+
 		if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
-        {
-			transform.position += Vector3.back* speed * Time.deltaTime;
-		}
+            vertical = -1;
+
+		if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
+            horizontal = -1;
+
+		if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
+            horizontal = 1;
+
+        Vector3 direction = new Vector3(horizontal, 0, vertical);
+        direction = Quaternion.Euler(0, transform.eulerAngles.y, 0) * direction;
+
+        transform.position += direction * speed * Time.deltaTime;
     }
 
     void OnCollisionEnter(Collision other)
