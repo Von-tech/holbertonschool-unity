@@ -23,13 +23,18 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        float horizontal = 0, vertical = 0;
-
         if (Input.GetKeyDown(KeyCode.Space) && canJump)
         {
             selfRigidbody.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse);
             canJump = false;
         }
+        if (gameObject.transform.position.y <= -20)
+            gameObject.transform.position = new Vector3(0, 15, 0);
+    }
+
+    void FixedUpdate()
+    {
+        float horizontal = 0, vertical = 0;
 
 		if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
             vertical = 1;
