@@ -27,6 +27,12 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("Options");
     }
 
+    public void Exit()
+    {
+        Debug.Log("Aplication quit");
+        Application.Quit();
+    }
+
     void OnDisable()
     {
         PlayerPrefs.SetString("PreviousScene", SceneManager.GetActiveScene().name);
