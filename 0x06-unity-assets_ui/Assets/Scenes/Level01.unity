@@ -8116,6 +8116,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 64
       objectReference: {fileID: 0}
+    - target: {fileID: 2169321100013040758, guid: 8026aa3e1df9d204bbc1bf453834be19, type: 3}
+      propertyPath: m_Name
+      value: TitleText
+      objectReference: {fileID: 0}
     - target: {fileID: 5743464251916098185, guid: 8026aa3e1df9d204bbc1bf453834be19, type: 3}
       propertyPath: m_Name
       value: PauseCanvas
