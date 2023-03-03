@@ -28,12 +28,15 @@ In this project, you will be exploring how to publish a game to play on Windows,
 Edit the project’s Quality Settings. Your project should have three quality levels:
 
 **Low:**
+
 ![image1](Images/0-qualitysettings-low.png)
 
 **Medium:**
+
 ![image2](Images/0-qualitysettings-medium.png)
 
 **High:**
+
 ![image3](Images/0-qualitysettings-high.png)
 
 #### 1. Player Settings
