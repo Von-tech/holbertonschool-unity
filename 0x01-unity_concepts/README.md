@@ -18,8 +18,6 @@ My challenge for you is to try to solve all of this task and after see the way I
 
 This is a project made on Unity 2019.3.0f6. If you have a different version of Unity, you can try to open the project and see if it works. If it doesn't, you can try to update your version of Unity.
 
-Game Engine is Unity 2019.3.0f6. 
-
 This project do not have deploy to any platform.
 
 #### 0. Floor plans
