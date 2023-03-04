@@ -19,6 +19,8 @@ This project have deploy to windows, linux and mac platform.
 
 The link to my final result you can find it [here](https://drive.google.com/drive/folders/1G1Sr0mySkWDzC7PA6C1w_bkV3ej4zAQ9?usp=share_link)
 
+All the intellectual property of this project is from Holberton School.
+
 
 #### 0. Quality Settings
 Clone your [`0x03-unity-ui`](https://github.com/bcondict/holbertonschool-0x03-unity-ui) repo into a new folder called `0x04-unity_publishing` inside your `holbertonschool-unity` repo.

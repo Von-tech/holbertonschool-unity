@@ -20,6 +20,8 @@ This is a project made on Unity 2019.3.0f6. If you have a different version of U
 
 This project do not have deploy to any platform.
 
+All the intellectual property of this project is from Holberton School.
+
 #### 0. Floor plans
 Create a new 3D Unity project called `0x01-unity_concepts`. Save your new scene as `0-floor`. Create a new Cube GameObject named `Floor` with the following Transform properties:
 - Position: `X: 0`, `Y: 0`, `Z: 0`
