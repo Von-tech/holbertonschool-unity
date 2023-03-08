@@ -125,7 +125,11 @@ public class PlayerController : MonoBehaviour
 
         // if player falls out map
         if (gameObject.transform.position.y <= -20)
-            gameObject.transform.position = new Vector3(0, 15, 0);
+        {
+            gameObject.transform.position = new Vector3(0, 50, 0);
+            animator.SetBool("isFalling", true);
+            
+        }
     }
 
     void FixedUpdate()
@@ -162,6 +166,7 @@ public class PlayerController : MonoBehaviour
         if (canJump)
         {
             animator.SetBool("isJumping", false);
+            animator.SetBool("isFalling", false);
             // animator.SetTrigger("isJumping");
             childObject.position = gameObject.transform.position;
         }
@@ -189,12 +194,6 @@ public class PlayerController : MonoBehaviour
         }
         // Vector3 direction = new Vector3(horizontal, 0, vertical).normalized;
         direction = new Vector3(horizontal, 0, vertical).normalized;
-
-        // float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
-        // float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
-        // transform.rotation = Quaternion.Euler(0f, angle, 0f);
-
-
 
         direction = Quaternion.Euler(0, transform.eulerAngles.y, 0) * direction;
         transform.position += direction * speed * Time.deltaTime;
