@@ -1,47 +1,30 @@
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class WinTrigger : MonoBehaviour
 {
-    public GameObject Player;
-    public GameObject Camera;
-    public GameObject TimerCanvas;
-    public GameObject WinCanvas;
-    public GameObject PauseMenu;
+    public GameObject player;
+    public Text timerText;
+    public GameObject winCanvas;
+    public AudioSource cheeryMondayBGM;
+    public AudioSource victoryPianoBGM;
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+         player = FindObjectOfType<PlayerController>().gameObject;
+         victoryPianoBGM.Stop();
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.name == "Player")
-        {
-            // Unable show pause menu press esc key
-            PauseMenu.SetActive(false);
-
-            // show win display
-            WinCanvas.SetActive(true);
-
-            // get Timer script and call win method
-            Timer timer = Player.GetComponent<Timer>();
-            timer.Win();
-
-            // stop timer cont and hide timer on top
-            timer.enabled = false;
-            TimerCanvas.SetActive(false);
-
-            // disable player and camera movement 
-            Player.GetComponent<PlayerController>().enabled = false;
-            Camera.GetComponent<CameraController>().enabled = false;
-        }
+        player.GetComponent<Timer>().enabled = false;
+        winCanvas.SetActive(true);
+        player.GetComponent<PauseMenu>().enabled = false;
+        player.GetComponent<Timer>().Win();
+        cheeryMondayBGM.Stop();
+        victoryPianoBGM.Play();
+        Time.timeScale = 0;
     }
 }

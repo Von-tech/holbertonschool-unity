@@ -1,12 +1,21 @@
 fileFormatVersion: 2
-guid: 38e5ed2f1f97084429bdd9f171012bff
+guid: 485710e9ada6b1a469a2c661fb116c18
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 3945451662944984592
+    second: bg-button_0
+  - first:
+      213: 8440510077267459181
+    second: bg-button_1
+  - first:
+      213: 1641548200286959669
+    second: bg-button_2
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -36,8 +45,8 @@ TextureImporter:
     filterMode: 1
     aniso: 1
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
+    wrapU: 1
+    wrapV: 1
     wrapW: 0
   nPOTScale: 0
   lightmap: 0
@@ -51,7 +60,7 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
-  alphaIsTransparency: 0
+  alphaIsTransparency: 1
   spriteTessellationDetail: -1
   textureType: 8
   textureShape: 1
@@ -63,7 +72,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
-  cookieLightType: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -90,7 +99,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: Server
+    buildTarget: iPhone
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -114,7 +123,19 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: iPhone
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -143,8 +164,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b583d78b953b1fd4c8f540220f551e94
-      internalID: 1836630506
+      spriteID: 01e5f40326f01c630800000000000000
+      internalID: 3945451662944984592
       vertices: []
       indices: 
       edges: []
@@ -164,8 +185,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9b7daa9e482431c43b48f6fb62a89673
-      internalID: -481374368
+      spriteID: d6cb1ae0237b22570800000000000000
+      internalID: 8440510077267459181
       vertices: []
       indices: 
       edges: []
@@ -185,8 +206,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 02a1000c13fd5a342ae38425c2339f95
-      internalID: -415367713
+      spriteID: 53839cf0463f7c610800000000000000
+      internalID: 1641548200286959669
       vertices: []
       indices: 
       edges: []
@@ -202,9 +223,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      bg-button_0: 1836630506
-      bg-button_1: -481374368
-      bg-button_2: -415367713
+      bg-button_0: 3945451662944984592
+      bg-button_1: 8440510077267459181
+      bg-button_2: 1641548200286959669
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

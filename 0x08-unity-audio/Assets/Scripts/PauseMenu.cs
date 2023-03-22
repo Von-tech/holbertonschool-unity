@@ -1,23 +1,36 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseCanvas;
-    public GameObject Player;
-    public GameObject Camera;
-    private Rigidbody rb;
-    public bool pressed = false;
-
+    public bool paused;
     // Start is called before the first frame update
+    public AudioMixerSnapshot pausedSnapshot;
+    public AudioMixerSnapshot unpausedSnapshot;
+    private float initailBGMVolume;
     void Start()
     {
-        //get rigidbody component
-        rb = Player.GetComponent<Rigidbody>();
-        Camera.GetComponent<CameraController>().enabled = true;
+        // Cursor.visible = false;
+        // Cursor.lockState = CursorLockMode.Confined;
+        paused = false;
+        Time.timeScale = 1;
+        pauseCanvas.transform.Find("RestartButton").gameObject.GetComponent<Button>().onClick.AddListener(Restart);
+        pauseCanvas.transform.Find("MenuButton").gameObject.GetComponent<Button>().onClick.AddListener(MainMenu);
+        pauseCanvas.transform.Find("OptionsButton").gameObject.GetComponent<Button>().onClick.AddListener(Options);
+        pauseCanvas.transform.Find("ResumeButton").gameObject.GetComponent<Button>().onClick.AddListener(Resume);
+        unpausedSnapshot.TransitionTo(0.01f);
+        SceneManager.activeSceneChanged += ChangeActiveScene;
+    }
+
+    void ChangeActiveScene(Scene current, Scene next)
+    {
+        Time.timeScale = 1;
+        unpausedSnapshot.TransitionTo(0.01f);
     }
 
     // Update is called once per frame
@@ -25,42 +38,36 @@ public class PauseMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            // Check if ESC was pressed before
-            pressed = !pressed;
-            if (pressed)
+            if (paused)
                 Resume();
-            if (!pressed)
+            else
                 Pause();
-        }
+        }        
     }
 
     public void Pause()
     {
-        // active pause menu and stop timer, movement, camera and falling
+        // Cursor.visible = true;
+        // Cursor.lockState = CursorLockMode.None;
+        Time.timeScale = 0;
         pauseCanvas.SetActive(true);
-        Player.GetComponent<Timer>().enabled = false;
-        Player.GetComponent<PlayerController>().enabled = false;
-        Camera.GetComponent<CameraController>().enabled = false;
-        rb.constraints = RigidbodyConstraints.FreezeAll;
+        paused = true;
+        pausedSnapshot.TransitionTo(0.01f);
     }
 
     public void Resume()
     {
-        // resume game and plays timer, movement, camera and falling
+        Time.timeScale = 1;
         pauseCanvas.SetActive(false);
-        Player.GetComponent<Timer>().enabled = true;
-        Player.GetComponent<PlayerController>().enabled = true;
-        Camera.GetComponent<CameraController>().enabled = true;
-        rb.constraints = RigidbodyConstraints.None;
+        paused = false;
+        unpausedSnapshot.TransitionTo(0.01f);
+        // Cursor.visible = false;
+        // Cursor.lockState = CursorLockMode.Confined;
     }
 
     public void Restart()
     {
-        // Get the name of the current scene
-        string currentSceneName = SceneManager.GetActiveScene().name;
-
-        // Load the current scene again
-        SceneManager.LoadScene(currentSceneName);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void MainMenu()
@@ -70,12 +77,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Options()
     {
+        PlayerPrefs.SetString("previous-scene", SceneManager.GetActiveScene().name);
         SceneManager.LoadScene("Options");
-        GameObject optionsCanvas = GameObject.Find("OptionsCanvas");
-    }
-
-    void OnDisable()
-    {
-        PlayerPrefs.SetString("PreviousScene", SceneManager.GetActiveScene().name);
     }
 }

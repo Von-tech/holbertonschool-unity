@@ -1,11 +1,9 @@
 fileFormatVersion: 2
-guid: c1e65d1c64691354d8ac926ad8c9028c
+guid: b5be718dd5c80034abf38b7e88be9d90
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - pauseCanvas: {fileID: 5743464251916098185, guid: 8026aa3e1df9d204bbc1bf453834be19, type: 3}
-  - Camera: {fileID: 9071321038311653029, guid: 4622315c853452846ab38c1e5ac8520b, type: 3}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

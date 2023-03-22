@@ -1,24 +1,17 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class TimerTrigger : MonoBehaviour
 {
-    public GameObject Player;
+    public GameObject player;
     // Start is called before the first frame update
     void Start()
     {
+        player = FindObjectOfType<PlayerController>().gameObject;        
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     void OnTriggerExit(Collider other)
     {
-        if (other.name == "Player")
-            Player.GetComponent<Timer>().enabled = true;
+        player.GetComponent<Timer>().enabled = true;
     }
 }

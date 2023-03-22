@@ -1,32 +1,35 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
-    public Text TimerText;
-    public float time = 0f;
+    public Text timerText;
+    private float startTime;
 
-    public Text FinalTime;
-
+    public GameObject winCanvas;
     // Start is called before the first frame update
     void Start()
     {
-        
+        startTime = Time.time;
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Counter time, in specific format
-        time += Time.deltaTime;
-        TimerText.text = time.ToString("0:00.00");
+        float t = Time.time - startTime;
+
+        string minutes = ((int) t / 60).ToString();
+        string seconds = ((int)t % 60).ToString("D2");
+        string decimals = ((int)(t * 100) % 100).ToString("D2"); 
+
+        timerText.text = minutes + ":" + seconds + "." +decimals;        
     }
 
     public void Win()
     {
-        // time shown on WinCanvas
-        FinalTime.text = TimerText.text;
+        winCanvas.transform.Find("FinalTime").GetComponent<Text>().text = timerText.text;
+        timerText.text = "";
     }
 }

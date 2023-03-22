@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,25 +9,20 @@ public class WinMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        transform.Find("MenuButton").gameObject.GetComponent<Button>().onClick.AddListener(MainMenu);
+        transform.Find("NextButton").gameObject.GetComponent<Button>().onClick.AddListener(Next);
     }
 
     public void MainMenu()
     {
         SceneManager.LoadScene("MainMenu");
     }
-
     public void Next()
     {
-        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        if (currentSceneIndex == 4)
-            currentSceneIndex = 1;
-        SceneManager.LoadScene(currentSceneIndex + 1);
+        int sceneIndex = SceneManager.GetActiveScene().buildIndex;
+        if (sceneIndex < 3)
+            SceneManager.LoadScene(sceneIndex + 1);
+        else
+            MainMenu();
     }
 }
