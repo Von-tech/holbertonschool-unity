@@ -6,6 +6,11 @@ You can find the executable file for this project here &rarr; [https://drive.goo
 
 Aviable on Windows, Mac and Linux. Soon will be aviable on web using WebGL.
 
+### Preview
+![Preview](./Images/platformer.png)
+![menu](./Images/platformer_menu.png)
+![options](./Images/platformer_options_menu.png)
+
 ### Attributions
 The realization of this project was possible, thanks to the following resources: 
 * Kenney: https://kenney.nl/ 
@@ -26,7 +31,7 @@ The realization of this project was possible, thanks to the following resources:
 * [Exposed AudioMixer Parameters]()
 * [Unity Manual]()
 * [The Importance of Sound Design in Video Games]()
-* [Repo](https://github.com/santiagopemo/holbertonschool-unity/)
+* [Repo](https://github.com/bcondict/holbertonschool-unity/)
 ## Learning Objectives :bulb:
 * At the end of this project, you are expected to be able to explain to anyone, without the help of Google:
 
