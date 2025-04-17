@@ -28,6 +28,3 @@ In this project, you will learn about audio implementation in Unity. You will ex
 The 0x09-unity-ar_business_card project introduces you to augmented reality (AR) development with Unity. You will learn how to create an AR business card that can be scanned and interacted with using your mobile device.
 
 Feel free to explore each project's directory for detailed instructions, source code, and any additional resources provided. Happy learning and game development with Unity at Holberton School!
-
-## Author
-- Jesus Junco [LinkedIn](https://www.linkedin.com/in/dev-jesus-junco/)
